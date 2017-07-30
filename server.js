@@ -1,6 +1,9 @@
-var User = require('./user');
+const http = require('http');
 
-var vasya = new User('Vasya');
-var petya = new User('Petya');
+const server = new http.Server();
 
-vasya.hello(petya);
+server.listen(1337, '127.0.0.1');
+
+server.on('request', (req, res) => {
+  res.end('Hello world');
+});
